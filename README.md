@@ -5,7 +5,6 @@ This innovative project consists of two individual sub-projects aimed at enhanci
 **Project 1: Accident Alert System (SOS)** 
 
 The Accident Alert System is a cost-effective solution designed to detect accidents and send immediate alerts to emergency services and the victim's relatives/friends via SMS. The system uses Arduino UNO, MPU6050 (Six-Axis Gyro + Accelerometer), GPS (NEO6M), and GSM (SIM800L) modules.
-www.teamraftaar.com
 
 The system continuously monitors the vehicle's movements using the MPU6050 sensor, which detects sudden changes in acceleration and angular rotation. When an accident occurs, the Arduino triggers and sends the vehicle's current location (obtained from the GPS module) to the GSM module. The GSM module then sends an alert SMS to emergency services and the victim's contacts, requesting immediate help. The system uses LED indicators and a buzzer to display its status.
 

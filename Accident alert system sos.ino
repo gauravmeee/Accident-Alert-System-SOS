@@ -1,34 +1,4 @@
-import serial, time, math
-ser1 = serial.Serial('COMx', 9600)
-usleep = lambda x: time.sleep(x/1_000_000.0)
-acc_x0 = 0
-acc_x1 = 0
-acc_y0 = 0
-acc_y1 = 0
-acc_z0 = 0
-acc_z1 = 0
-sense = 50
-def cast_list(list):
-return list(map("float", list))
-while True:
-if ser1.in_waiting:
-packet = ser1.readline()
-line = packet.decode('utf').split("(, )")
-acc_list = cast_list(line)
-acc_x0 = acc_x1
-acc_y0 = acc_y1
-acc_z0 = acc_z1
-usleep(10)
-acc_x1 = acc_list[0]
-acc_y1 = acc_list[1]
-acc_z1 = acc_list[2]
-jerk = math.sqrt(((acc_x1 - acc_x0) ** 2) + ((acc_y1 - acc_y0) ** 2) + ((acc_z1 -
-acc_z0) ** 2))
-if jerk > sense :
-print("%d" %(jerk))
-Appendix F - Accident alert System SOS and Auto cutoff system code
-1. Accident alert system sos
-//team Raftaar asme innovation project 2023
+//#Accident alert system sos -- team Raftaar asme innovation project 2023
 #include<LiquidCrystal_I2C.h>
 #include <AltSoftSerial.h>
 #include <TinyGPS++.h>
@@ -349,39 +319,4 @@ boolean SendAT(String at_command, String expected_answer, unsigned int timeout){
  }while((answer == 0) && ((millis() - previous) < timeout));
  Serial.println(response);
  return answer;
-}
-2. Auto Cutoff System
-//team Raftaar asme innovation project 2023
-#include <Wire.h>
-#include <MPU6050.h>
-MPU6050 mpu;
-int16_t accelerometer_x, accelerometer_y, accelerometer_z;
-int16_t gyroscope_x, gyroscope_y, gyroscope_z;
-double angle_x, angle_y, angle_z;
-double roll, pitch;
-const int relay_pin = 7;
-const int tilt_threshold = 30;
-void setup() {
- Serial.begin(9600);
- Wire.begin();
- mpu.initialize();
- pinMode(relay_pin, OUTPUT);
-}
-void loop() {
- mpu.getMotion6(&accelerometer_x, &accelerometer_y, &accelerometer_z,
-&gyroscope_x, &gyroscope_y, &gyroscope_z);
- angle_x = atan2(accelerometer_y, accelerometer_z) * 180 / M_PI;
- angle_y = atan2(-accelerometer_x, sqrt(accelerometer_y * accelerometer_y +
-accelerometer_z * accelerometer_z)) * 180 / M_PI;
- roll = 0.98 * (roll + gyroscope_x * 0.001) + 0.02 * angle_x;
- pitch = 0.98 * (pitch + gyroscope_y * 0.001) + 0.02 * angle_y;
- if (pitch > tilt_threshold || pitch < -tilt_threshold || roll > tilt_threshold || roll < -
-tilt_threshold) {
- digitalWrite(relay_pin, HIGH);
- Serial.println("Tilt angle exceeded threshold. Engine cut off.");
- }
- else {
- digitalWrite(relay_pin, LOW);
- }
- delay(100);
 }

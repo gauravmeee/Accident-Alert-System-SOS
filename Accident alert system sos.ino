@@ -1,4 +1,4 @@
-//#Accident alert system sos -- team Raftaar asme innovation project 2023
+//Accident alert system sos -- team Raftaar asme innovation project 2023
 #include<LiquidCrystal_I2C.h>
 #include <AltSoftSerial.h>
 #include <TinyGPS++.h>

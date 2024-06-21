@@ -1,10 +1,10 @@
 # Innovative Project : Integrated Bike Safety Solutions
 
-This innovative project consists of two individual sub-projects aimed at enhancing safety for bike riders and providing an accident alert system. The first sub-project, the Auto-Cutoff System, utilizes an Arduino and accelerometer sensor to detect bike tilt and automatically cut off the battery supply to prevent accidents. The second sub-project, the Accident Alert System (SOS), combines Arduino, MPU6050, GPS, and GSM modules to detect accidents and send immediate alerts to emergency services and contacts via SMS. Both sub-projects offer cost-effective solutions to mitigate the risks associated with bike accidents. For more details, please refer to the link attached at the end of the file
+This is Prototype of My innovative project consists of two individual sub-projects aimed at enhancing safety for bike riders and providing an accident alert system. The first sub-project, the Auto-Cutoff System, utilizes an Arduino and accelerometer sensor to detect bike tilt and automatically cut off the battery supply to prevent accidents. The second sub-project, the Accident Alert System (SOS), combines Arduino, MPU6050, GPS, and GSM modules to detect accidents and send immediate alerts to emergency services and contacts via SMS. Both sub-projects offer cost-effective solutions to mitigate the risks associated with bike accidents. For more details, please refer to the link attached at the end of the file
 
 **Project 1: Accident Alert System (SOS)** 
 
-**Code** https://github.com/gauravmeee/Accident-Alert-System-SOS-/blob/ab2b0ae5876c9fb737102f21dbb8b8e25b5ebaad/Accident%20alert%20system%20sos.ino
+**Code** https://github.com/gauravmeee/Accident-Alert-System-SOS/blob/ab2b0ae5876c9fb737102f21dbb8b8e25b5ebaad/Accident%20alert%20system%20sos.ino
 
 The Accident Alert System is a cost-effective solution designed to detect accidents and send immediate alerts to emergency services and the victim's relatives/friends via SMS. The system uses Arduino UNO, MPU6050 (Six-Axis Gyro + Accelerometer), GPS (NEO6M), and GSM (SIM800L) modules.
 
